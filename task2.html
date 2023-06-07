@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        position: relative;
+        background-color: salmon;
+        font-family: sans-serif;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+        font-size: 30px;
+      }
+
+      .tasks-block {
+        display: flex;
+        column-gap: 15px;
+        padding: 30px;
+        font-size: 25px;
+      }
+      .tasks-block a {
+        color: rgb(58, 58, 58);
+        text-decoration: none;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="tasks-block">
+      <a href="index.html">Task 1 > </a>
+      <a href="task3.html">Task 3 > </a>
+    </div>
+
+    <ul id="list" class="list-items-links">
+      <li class="item-link">
+        <a href="index.html" class="link">index.html</a>
+      </li>
+      <li class="item-link">
+        <a href="http://google.com" class="link">http://google.com</a>
+      </li>
+      <li class="item-link">
+        <a href="https://itstep.org" class="link">https://itstep.org</a>
+      </li>
+      <li class="item-link">
+        <a href="https://mystat.itstep.org" class="link"
+          >https://mystat.itstep.org</a
+        >
+      </li>
+      <li class="item-link">
+        <a href="/images/cat.jpg" class="link">/images/cat.jpg</a>
+      </li>
+      <li class="item-link">
+        <a href="/local/path" class="link">/local/path</a>
+      </li>
+    </ul>
+
+    <script type="text/javascript">
+      let links = list.getElementsByTagName("A");
+
+      function toDot() {
+        for (link of links) {
+          console.log(link);
+          if (link.href.indexOf("http://") != -1) {
+            // console.log(link.href);
+            console.log("OK");
+            link.setAttribute("style", "text-decoration: underline;");
+            link.style.backgroundColor = "white";
+          }
+        }
+      }
+      toDot();
+    </script>
+  </body>
+</html>

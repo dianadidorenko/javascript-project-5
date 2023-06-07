@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        height: 100vh;
+        position: relative;
+      }
+      .block-body {
+        width: 800px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: salmon;
+        padding: 50px;
+        border-radius: 20px;
+      }
+
+      .article-block,
+      .comment-block {
+        border-bottom: 1px solid #000;
+      }
+      .comment-block {
+        display: flex;
+        column-gap: 30px;
+      }
+      .article-block p,
+      h1,
+      .comment-block p {
+        margin: 0;
+      }
+      .article-text,
+      .leave-comment-block,
+      .comment-block {
+        padding: 30px 0;
+      }
+      .form-block {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+      }
+      .this-comment {
+        display: none;
+      }
+      .comment-title {
+        font-weight: bold;
+        font-size: 20px;
+      }
+      input,
+      textarea {
+        outline: none;
+      }
+      input {
+        max-width: 150px;
+      }
+      textarea {
+        height: 100px;
+      }
+      #addComment {
+        font-size: 20px;
+        margin: 20px auto;
+        padding: 10px;
+      }
+
+      .tasks-block {
+        display: flex;
+        column-gap: 15px;
+        padding: 30px;
+        font-size: 25px;
+      }
+      .tasks-block a {
+        color: rgb(58, 58, 58);
+        text-decoration: none;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="tasks-block">
+      <a href="index.html">Task 1 > </a>
+      <a href="task2.html">Task 2 > </a>
+    </div>
+
+    <div class="block-body">
+      <div class="article-block">
+        <h1>What is Lorem Ipsum?</h1>
+        <p class="article-text">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius sit
+          totam obcaecati tempora temporibus sed sequi odio in nemo aperiam! Qui
+          culpa recusandae enim commodi cumque aliquid? Amet necessitatibus
+          incidunt quam inventore saepe? Aliquam explicabo neque iure optio
+          magnam tenetur.
+        </p>
+      </div>
+      <div id="commentBlock" class="comment-block"></div>
+      <div class="leave-comment-block">
+        <p class="leave-comment-title">Leave your comment</p>
+        <form id="formBlock" class="form-block">
+          Name: <input type="text" id="inputName" /> Comment:
+          <textarea id="textarea"></textarea>
+        </form>
+        <button id="addComment" type="submit">Add comment</button>
+      </div>
+    </div>
+    <script type="text/javascript">
+      addComment.addEventListener("click", function () {
+        let name = inputName.value,
+          comment = textarea.value,
+          date =
+            "0" +
+            new Date().getDate() +
+            "." +
+            "0" +
+            new Date().getMonth() +
+            "." +
+            new Date().getFullYear(),
+          commentBlock = document.getElementById("commentBlock");
+
+        let div = document.createElement("div"),
+          pTitle = document.createElement("p"),
+          pDate = document.createElement("p"),
+          pComment = document.createElement("p");
+
+        div.setAttribute("class", "comment");
+        div.appendChild(pTitle);
+        div.appendChild(pDate);
+        div.appendChild(pComment);
+
+        pTitle.setAttribute("class", "comment-title");
+        pTitle.innerText = name;
+
+        pDate.setAttribute("class", "comment-date");
+        pDate.innerText = date;
+
+        pComment.setAttribute("class", "comment-text");
+        pComment.innerText = comment;
+
+        commentBlock.appendChild(div);
+        div.style.border = "1px solid black";
+        div.style.maxWidth = "200px";
+        div.style.display = "flex";
+        div.style.flexDirection = "column";
+        div.style.padding = "20px";
+        div.style.margin = "20px 0";
+        div.style.justifyContent = "center";
+        div.style.rowGap = "10px";
+
+        document.getElementById("formBlock").reset();
+      });
+    </script>
+  </body>
+</html>

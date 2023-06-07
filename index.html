@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        position: relative;
+      }
+      .block-items {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px 50px;
+        flex-wrap: wrap;
+        width: 1000px;
+        height: 500px;
+        background-color: salmon;
+        border: 1px solid lightgrey;
+      }
+      .item {
+        width: 100px;
+        height: 80px;
+      }
+      #addButton {
+        display: block;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        background-color: rgb(183, 183, 183);
+        color: black;
+        padding: 10px 50px;
+        max-width: 300px;
+        text-decoration: none;
+        margin: 20px auto;
+        transition: all 0.3s ease 0s;
+      }
+      #add:hover {
+        background-color: rgb(213, 213, 213);
+      }
+
+      .tasks-block {
+        display: flex;
+        column-gap: 15px;
+        padding: 30px;
+        font-size: 25px;
+      }
+      .tasks-block a {
+        color: rgb(58, 58, 58);
+        text-decoration: none;
+      }
+      .tasks-block a:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+
+    <div class="tasks-block">
+      <a href="task2.html">Task 2 > </a>
+      <a href="task3.html">Task 3 > </a>
+    </div>
+
+    <div class="block-body">
+      <div id="block-items" class="block-items">
+        <div class="item"></div>
+      </div>
+      <a href="#" id="addButton">Add block</a>
+    </div>
+    <script type="text/javascript">
+      //
+      let colorBlock = document.getElementById("block-items"),
+        colorItem = document.querySelector(".item"),
+        addButton = document.getElementById("addButton");
+
+      addButton.addEventListener("click", function () {
+        var div = document.createElement("div");
+        div.setAttribute("class", "item");
+        colorBlock.appendChild(div);
+
+        // Set background color
+        backgroundColor =
+          "rgb(" +
+          Math.round(255 * Math.random()) +
+          "," +
+          Math.round(255 * Math.random()) +
+          "," +
+          Math.round(255 * Math.random()) +
+          ")";
+
+        itemBackground = div.setAttribute(
+          "style",
+          "background-color: " + backgroundColor
+        );
+
+        // Delete new div
+        div.addEventListener("click", function (e) {
+          div.remove();
+        });
+      });
+    </script>
+  </body>
+</html>
