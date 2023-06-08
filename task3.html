@@ -109,13 +109,14 @@
     <script type="text/javascript">
       addComment.addEventListener("click", function () {
         let name = inputName.value,
+            month = new Date().getMonth() + 1,
           comment = textarea.value,
           date =
             "0" +
             new Date().getDate() +
             "." +
             "0" +
-            new Date().getMonth() + 1 +
+            month +
             "." +
             new Date().getFullYear(),
           commentBlock = document.getElementById("commentBlock");
